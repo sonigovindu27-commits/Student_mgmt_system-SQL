@@ -1,114 +1,78 @@
 
-* Student Management System - SQL Project
+# 🎓 Student Management System – SQL Project
 
+## 📌 Project Overview
+The Student Management System is a SQL-based project designed to store, manage, and analyze student information efficiently.  
+It demonstrates the use of SQL for database creation, data manipulation, and analytical queries on student academic records.
 
+---
 
-* Author: Soni Govindu
+## 🧑‍💻 Author
+**Soni Govindu**
 
+---
 
+## 🛠 Tools & Technologies
+- SQL  
+- MySQL  
+- XAMPP / MySQL Workbench  
 
+---
 
- ============================================
+## 🗂 Database Information
+- **Database Name:** `stu_mgmt`
+- **Table Name:** `students`
 
-* Create Database
+---
 
-CREATE DATABASE stu_mgmt;
+## 📋 Table Structure
 
+### students
 
-* To use the database
+| Column Name | Data Type | Description |
+|------------|----------|-------------|
+| student_id | INT (Primary Key) | Unique student identifier |
+| first_name | VARCHAR(50) | Student first name |
+| last_name | VARCHAR(50) | Student last name |
+| gender | VARCHAR(10) | Gender |
+| dob | DATE | Date of birth |
+| course | VARCHAR(50) | Course enrolled |
+| email | VARCHAR(100) | Unique email ID |
+| phone | VARCHAR(15) | Contact number |
+| admission_date | DATE | Date of admission |
+| marks | DECIMAL(5,2) | Student marks |
 
-USE stu_mgmt;
+---
 
+## ✨ Features Implemented
 
-*Create Students Table
+### Database Operations
+- Create and use database
+- Create table with constraints
+- Insert student records
 
+### CRUD Operations
+- View all students
+- Update student marks
+- Delete student records
 
-CREATE TABLE students (student_id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50),
-    gender VARCHAR(10),
-    dob DATE,
-    course VARCHAR(50),
-    email VARCHAR(100) UNIQUE,
-    phone VARCHAR(15),
-    admission_date DATE,
-    marks DECIMAL(5,2)
-);
+### SQL Analysis
+- Calculate average marks
+- Find highest and lowest marks
+- Course-wise student count
+- Identify students scoring above average
 
-* Insert Sample Data
-  
-INSERT INTO students (first_name, last_name, gender, dob, course, email, phone, admission_date, marks) VALUES
+### Advanced SQL Concepts
+- Aggregate functions
+- GROUP BY
+- Subqueries
+- ORDER BY
+- Views
 
-('Rahul', 'Sharma', 'Male', '2002-05-10', 'BSc IT', 'rahul@gmail.com', '9876543210', '2023-06-01', 88.00),
+---
 
-('Sneha', 'Patil', 'Female', '2001-08-15', 'BSc IT', 'sneha@gmail.com', '9123456780', '2023-06-01', 90.75),
+## 📊 Sample Queries
 
-('Soni', 'Govindu', 'Female', '2003-05-10', 'BSc CS', 'soni@gmail.com', '9876543210', '2023-06-01', 89.50);
-
-
-
-
-* View All Students
-
-SELECT * FROM students;
-
-
-
-
-* Update Example
-
-UPDATE students SET marks = 88.00 WHERE student_id = 1;
-
-
-
-
-* Delete Example
-
-DELETE FROM students WHERE student_id = 3;
-
-
-
-
-* Aggregate Functions
-
-
-SELECT AVG(marks) AS average_marks FROM students;
-
-
-
-SELECT MAX(marks) AS highest_marks, MIN(marks) AS lowest_marks FROM students;
-
-
-
-* Group By
-
-SELECT course, COUNT(*) AS total_students FROM students GROUP BY course;
-
-
-
-
-* Subquery: Students Above Average
-
-
-SELECT * FROM students WHERE marks > (SELECT AVG(marks) FROM students);
-
-
-
-
-* Order By 
-
-
-SELECT first_name, marks FROM students ORDER BY marks DESC;
-
-
-
-* Create View
-
-CREATE VIEW top_students AS SELECT first_name, last_name, marks FROM students WHERE marks > 85;
-
-
-
-* To View The data
-
-
+### View All Students
+```sql
 SELECT * FROM students;
